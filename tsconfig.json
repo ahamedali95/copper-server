@@ -8,6 +8,8 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
     "outDir": "./build",
@@ -16,8 +18,10 @@
     "resolveJsonModule": true,
     "typeRoots": [
       "./node_modules/@types",
-      "./src/main/jobPortal/custom.d.ts"
-    ]
+      "./src/main/jobPortal/custom.d.ts",
+      "./src/main/jobPortal/types.ts"
+    ],
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/main/**/*"

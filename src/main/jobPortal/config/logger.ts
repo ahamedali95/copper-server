@@ -44,8 +44,8 @@ const format = winston.format.combine(
     winston.format.colorize({ all: true }),
     // Define the format of the message showing the timestamp, the level and the message
     winston.format.printf(
-        (info) => `${info.timestamp} ${info.level}: ${info.message}`,
-    ),
+        (info) => `${info.timestamp} ${info.requestId} ${info.level}: ${info.message}`,
+    )
 );
 
 // Define which transports the logger must use to print out messages.
@@ -60,7 +60,7 @@ const transports = [
     }),
     // Allow to print all the error message inside the all.log file
     // (also the error log that are also printed inside the error.log(
-    new winston.transports.File({ filename: 'logs/all.log' }),
+    new winston.transports.File({ filename: 'logs/all.log' })
 ];
 
 // Create the logger instance that has to be exported

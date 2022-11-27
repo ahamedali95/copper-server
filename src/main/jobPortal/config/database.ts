@@ -1,10 +1,40 @@
-// import typeorm from "typeorm";
-// const { Connection, createConnection, getConnection } = typeorm;
-//
-// console.log(process.env.NODE_ENV)
-// const dbConnection = await createConnection(process.env.NODE_ENV as string);
-// console.log(getConnection("dev"))
-//
+import { getConnectionManager, ConnectionManager, Connection } from "typeorm";
+import UserEntity from "../entity/UserEntity";
+import UserProfileEntity from "../entity/UserProfileEntity";
 
+const connectionManager = getConnectionManager();
 
-export {}
+const connection = connectionManager.create({
+    type: "postgres",
+    host: "jelani.db.elephantsql.com",
+    port: 5432,
+    username: "afiiroky",
+    password: "IPdLOqRBwl2DTr-LMN8tMbn7fmT2xTix",
+    database: "afiiroky",
+    entities: [
+        "../entity/*.ts",
+        UserEntity,
+        UserProfileEntity
+    ],
+    synchronize: true,
+    logging: false
+
+});
+
+let db: Connection;
+
+const getDbConnection = (): Connection => db;
+
+const initDbConnection = async () => {
+    try {
+        db = await connection.connect();
+        console.log("Data Source has been initialized!");
+    } catch(err: any) {
+        console.error("Error during Data Source initialization", err)
+    }
+};
+
+export {
+    initDbConnection,
+    getDbConnection
+};
