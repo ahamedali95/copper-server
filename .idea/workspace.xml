@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ee72eef-f42e-4119-bddb-1a8ba4503ec1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/config/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/config/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/config/iocContainer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/config/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/config/logger.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/constants/errorMessages.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/dto/UserProfileDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/dto/UserProfileDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/dto/request/BaseRequestDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/dto/request/BaseRequestDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/dto/request/SignOnRequestDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/dto/request/SignOnRequestDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/dto/request/SignupRequestDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/dto/request/SignupRequestDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/dto/request/UserDetailRequestDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/dto/request/UserDetailRequestDto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/dto/response/SignupResponseDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/dto/response/SignupResponseDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/entity/UserEntity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/entity/UserEntity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/entity/UserProfileEntity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/entity/UserProfileEntity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/exception/IllegalArgumentException.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/exception/IllegalArgumentException.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/exception/ResourceNotFoundException.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/exception/ResourceNotFoundException.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/middleware/authenticationMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/middleware/authenticationMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/middleware/morganMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/middleware/morganMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/repository/UserRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/repository/UserRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/resource/AuthResource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/resource/AuthResource.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/resource/BaseResource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/resource/BaseResource.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/resource/UserResource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/resource/UserResource.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/resource/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/resource/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/service/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/service/AuthService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/service/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/service/UserService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/setup.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/jobPortal/util/ErrorNotification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/jobPortal/util/ErrorNotification.ts" afterDir="false" />
-    </list>
+    <list default="true" id="4ee72eef-f42e-4119-bddb-1a8ba4503ec1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/jobPortal/middleware/authenticationMiddleware.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -146,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/jobPortal/config/database.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-89">
-              <caret line="9" column="80" lean-forward="true" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+              <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -167,7 +135,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/jobPortal/repository/UserRepository.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
               </folding>
@@ -187,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/jobPortal/service/AuthService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+            <state relative-caret-position="720">
+              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -200,7 +168,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/jobPortal/resource/AuthResource.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
-              <caret line="48" column="57" lean-forward="true" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -427,29 +395,6 @@
               <item name="jobPortal" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="copper-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="copper-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="copper-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="profiles" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -493,18 +438,18 @@
       <option name="presentableId" value="Default" />
       <updated>1669310296439</updated>
       <workItem from="1669310298432" duration="80780000" />
-      <workItem from="1669594017254" duration="13083000" />
+      <workItem from="1669594017254" duration="13325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93863000" />
+    <option name="totallyTimeSpent" value="94105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -521,7 +466,7 @@
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32982087" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.39831403" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.39831403" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -833,7 +778,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/jobPortal/resource/AuthResource.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
-          <caret line="48" column="57" lean-forward="true" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -857,7 +802,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/jobPortal/middleware/authenticationMiddleware.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
@@ -867,7 +812,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/jobPortal/config/database.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-89">
-          <caret line="9" column="80" lean-forward="true" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+          <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
@@ -877,7 +822,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/jobPortal/repository/UserRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
@@ -893,8 +838,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/jobPortal/service/AuthService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        <state relative-caret-position="720">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
