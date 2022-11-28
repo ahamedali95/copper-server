@@ -7,7 +7,3 @@ export interface CrudRepository<T> {
     exists(id: string | number): Promise<boolean>,
     update(t: T | T[]): Promise<T | T[]>
 }
-
-interface JwtPayload {
-    email: string
-}

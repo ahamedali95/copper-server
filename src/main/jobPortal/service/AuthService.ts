@@ -1,16 +1,12 @@
-import type {IUserRepository} from "../repository/UserRepository";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
+import logger from "../config/logger";
+import SignonRequestDTO from "../dto/request/SignOnRequestDTO";
 import SignupRequestDTO from "../dto/request/SignupRequestDTO";
 import UserEntity from "../entity/UserEntity";
-import { ErrorNotification, populateErrorNotification } from "../util/ErrorNotification";
-
-import IllegalArgumentException from "../exception/IllegalArgumentException";
 import AuthencationException from "../exception/AuthencationException";
-import {validate} from "class-validator";
-import {ValidationError} from 'class-validator'
-import bcrypt from 'bcrypt';
-import SignonRequestDTO from "../dto/request/SignOnRequestDTO";
-import jwt from 'jsonwebtoken';
-import logger from "../config/logger";
+import type { IUserRepository } from "../repository/UserRepository";
 
 class AuthService {
     private userRepository: IUserRepository;
@@ -23,7 +19,7 @@ class AuthService {
 
         if (doesUserExist) {
             logger.info("User exists already");
-            throw new AuthencationException('User already exits');
+            throw new AuthencationException("User already exits");
         } else {
             logger.info("User does not exist. Creating new account.");
             const hashedPassword = await bcrypt.hash(requestDto._password, 10);

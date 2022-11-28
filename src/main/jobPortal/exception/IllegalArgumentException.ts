@@ -1,5 +1,5 @@
 import { ErrorNotification } from "../util/ErrorNotification";
-import {IError} from "./types";
+import { IError } from "./types";
 
 class IllegalArgumentException extends Error implements IError {
     errorNotification: ErrorNotification | undefined;

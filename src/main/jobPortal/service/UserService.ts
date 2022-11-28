@@ -1,13 +1,13 @@
-import type {IUserRepository, UserProfileRepository} from "../repository/UserRepository";
-import User from "../entity/UserEntity";
-import AuthencationException from "../exception/AuthencationException";
+import httpContext from "express-http-context";
+
 import logger from "../config/logger";
-import UserProfileRequestDTO from "../dto/request/UserProfileRequestDTO";
-import httpContext from 'express-http-context';
-import UserProfile from "../entity/UserProfileEntity";
-import ResourceNotException from "../exception/ResourceNotFoundException";
-import ResourceNotFoundException from "../exception/ResourceNotFoundException";
 import UserDetailRequestDto from "../dto/request/UserDetailRequestDto";
+import UserProfileRequestDTO from "../dto/request/UserProfileRequestDTO";
+import User from "../entity/UserEntity";
+import UserProfile from "../entity/UserProfileEntity";
+import ResourceNotFoundException from "../exception/ResourceNotFoundException";
+import UserProfileRepository from "../repository/UserProfileRepository";
+import type { IUserRepository } from "../repository/UserRepository";
 
 class UserService {
     private userRepository: IUserRepository;

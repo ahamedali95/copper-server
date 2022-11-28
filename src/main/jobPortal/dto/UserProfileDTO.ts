@@ -1,4 +1,4 @@
-import {IsDefined, IsString, MaxLength, IsUrl, IsNotEmpty, IsOptional} from "class-validator";
+import { IsNotEmpty, IsOptional, IsString, MaxLength } from "class-validator";
 
 abstract class UserProfileDTO {
     @MaxLength(30)

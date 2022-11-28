@@ -1,4 +1,4 @@
-import {IsEmail} from "class-validator";
+import { IsEmail } from "class-validator";
 
 //@todo: expand it to allow update user password
 class UserDetailRequestDto {

@@ -1,4 +1,3 @@
-import {IsDefined, IsEmail, IsString, Matches, MaxLength, MinLength} from "class-validator";
 
 class SignupResponseDTO {
     private id: number;

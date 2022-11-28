@@ -1,9 +1,13 @@
-import { getConnectionManager, ConnectionManager, Connection } from "typeorm";
+import { Connection, getConnectionManager } from "typeorm";
+
 import UserEntity from "../entity/UserEntity";
 import UserProfileEntity from "../entity/UserProfileEntity";
+import logger from "./logger";
 
 const connectionManager = getConnectionManager();
 
+//@todo - sharing this to trusted party in this case. Move db credentials to db vault or secret manager in the future.
+//@todo - Moreover, do profile management to handle config for each environment.
 const connection = connectionManager.create({
     type: "postgres",
     host: "jelani.db.elephantsql.com",
@@ -16,9 +20,9 @@ const connection = connectionManager.create({
         UserEntity,
         UserProfileEntity
     ],
+    //@todo - turn this rule off and implement database migration which allows for better tracking of schema changes.
     synchronize: true,
-    logging: false
-
+    logging: true
 });
 
 let db: Connection;
@@ -28,13 +32,13 @@ const getDbConnection = (): Connection => db;
 const initDbConnection = async () => {
     try {
         db = await connection.connect();
-        console.log("Data Source has been initialized!");
+        logger.info("Data Source has been initialized!");
     } catch(err: any) {
-        console.error("Error during Data Source initialization", err)
+        logger.error("Error during Data Source initialization", err)
     }
 };
 
 export {
-    initDbConnection,
-    getDbConnection
+    getDbConnection,
+    initDbConnection
 };

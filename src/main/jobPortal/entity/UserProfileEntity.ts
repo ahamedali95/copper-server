@@ -1,94 +1,59 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToOne} from "typeorm";
-import type {Relation} from 'typeorm'
-import User from "./UserEntity";
+import type { Relation } from "typeorm"
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+
 import UserEntity from "./UserEntity";
 
-
-const INITIAL_STATE = {
-    firstName: 'Straut',
-    lastName: 'Astropokesis',
-    occupation: 'Software Engineer',
-    company: 'JP Morgan',
-    experience: '10+',
-    twitterUrl: 'https://twitter.com/NYPDnews',
-    githubUrl: 'https://github.com/ahamedali95',
-    linkedInUrl: 'https://www.linkedin.com/in/ahameddev',
-    dob: '12/23/1995',
-    phoneNumber: '+16312443321',
-    country: 'United States',
-    city: 'Philadelphia',
-    state: 'PA',
-    postalCode: '34311',
-    shortBio: 'Experienced software engineer with a demonstrated history of working in the financial services industry in building consumer facing application'
-};
-
-// const profileSchema = object().shape({
-//     firstName: string().label('First Name').required().max(30),
-//     lastName: string().label("Last Name").required().max(30),
-//     occupation: string().label("Occupation").required().max(30),
-//     company: string().label("Company").notRequired().max(30),
-//     experience: string().label("Years of Experience").required(),
-//     twitterUrl: string().url().label("Twitter Url").notRequired(),
-//     githubUrl: string().url().label("Github Url").notRequired(),
-//     linkedInUrl: string().url().label("LinkedIn Url").notRequired(),
-//     dob: string().label("Date of Birth").required(),
-//     phoneNumber: string().label("Phone Number").required(),
-//     city: string().label("City").required().max(30),
-//     state: string().label("State").required().max(30),
-//     postalCode: string().label("Postal Code").notRequired().max(12),
-//     shortBio: string().label("Bio").notRequired().max(140)
-// });
-@Entity({ name: 'userProfile' })
+@Entity({ name: "userProfile" })
 class UserProfileEntity {
-    @PrimaryGeneratedColumn({ name: 'id' })
+    @PrimaryGeneratedColumn({ name: "id" })
     private id: number;
 
-    @Column({ name: 'firstName', length: 30 })
+    @Column({ name: "firstName", length: 30 })
     private firstName: string;
 
-    @Column({ name: 'lastName', length: 30 })
+    @Column({ name: "lastName", length: 30 })
     private lastName: string;
 
-    @Column({ name: 'occupation', length: 30 })
+    @Column({ name: "occupation", length: 30 })
     private occupation: string;
 
-    @Column({ name: 'company', length: 30, nullable: true })
+    @Column({ name: "company", length: 30, nullable: true })
     private company: string;
 
-    @Column({ name: 'experience', length: 4 })
+    @Column({ name: "experience", length: 4 })
     private experience: string;
 
-    @Column({ name: 'twitterUrl', nullable: true  })
+    @Column({ name: "twitterUrl", nullable: true })
     private twitterUrl: string;
 
-    @Column({ name: 'githubUrl', nullable: true  })
+    @Column({ name: "githubUrl", nullable: true })
     private githubUrl: string;
 
-    @Column({ name: 'linkedInUrl', nullable: true  })
+    @Column({ name: "linkedInUrl", nullable: true })
     private linkedInUrl: string;
 
-    @Column({ name: 'dob', length: 10 })
+    @Column({ name: "dob", length: 10 })
     private dob: string;
 
-    @Column({ name: 'phoneNumber', length: 20 })
+    @Column({ name: "phoneNumber", length: 20 })
     private phoneNumber: string;
 
-    @Column({ name: 'city', length: 30 })
+    @Column({ name: "city", length: 30 })
     private city: string;
 
-    @Column({ name: 'state', length: 30 })
+    @Column({ name: "state", length: 30 })
     private state: string;
 
-    @Column({ name: 'country', length: 30 })
+    @Column({ name: "country", length: 30 })
     private country: string;
 
-    @Column({ name: 'postalCode', length: 12, nullable: true })
+    @Column({ name: "postalCode", length: 12, nullable: true })
     private postalCode: string;
 
-    @Column({ name: 'shortBio', length: 140, nullable: true })
+    @Column({ name: "shortBio", length: 140, nullable: true })
     private shortBio: string;
 
-    @OneToOne(() => UserEntity, (user) => user._profile, { onDelete: 'CASCADE' })
+    @OneToOne(() => UserEntity, (user) => user._profile, { onDelete: "CASCADE" })
     private user: Relation<UserEntity>;
 
     get _user() {

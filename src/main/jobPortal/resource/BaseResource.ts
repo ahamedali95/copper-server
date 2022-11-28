@@ -1,19 +1,16 @@
-import {Request, Response} from "express";
-import BaseRequestDTO, {RequestData} from "../dto/request/BaseRequestDTO";
-import {validate, ValidationError} from "class-validator";
-import IllegalArgumentException from "../exception/IllegalArgumentException";
-import AuthencationException from "../exception/AuthencationException";
-import {
+import { validate, ValidationError } from "class-validator";
+import { Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 
-    StatusCodes,
-
-} from 'http-status-codes';
-import BaseResponse, {ResponseData} from "../dto/response/BaseResponse";
-import {BaseErrorResponse, ErrorDetail, Source} from "../dto/response/BaseErrorResponse";
-import {ErrorNotification, Error, populateErrorNotification} from "../util/ErrorNotification";
-import {IError} from "../exception/types";
 import logger from "../config/logger";
+import BaseRequestDTO, { RequestData } from "../dto/request/BaseRequestDTO";
+import { BaseErrorResponse, ErrorDetail, Source } from "../dto/response/BaseErrorResponse";
+import BaseResponse, { ResponseData } from "../dto/response/BaseResponse";
+import AuthencationException from "../exception/AuthencationException";
+import IllegalArgumentException from "../exception/IllegalArgumentException";
 import ResourceNotFoundException from "../exception/ResourceNotFoundException";
+import { IError } from "../exception/types";
+import { Error, ErrorNotification, populateErrorNotification } from "../util/ErrorNotification";
 
 
 abstract class BaseResource {
@@ -24,6 +21,7 @@ abstract class BaseResource {
     }
 
     async validateBaseResponseBody<T>(requestBody: BaseRequestDTO<T>): Promise<BaseRequestDTO<any>> {
+        logger.info("Validating base response body.");
         const baseRequestDto = new BaseRequestDTO();
         const requestData = new RequestData();
 
@@ -48,9 +46,8 @@ abstract class BaseResource {
     }
 
     async validateDto<T extends object>(dto: T): Promise<void> {
+        logger.info("Validating request data transfer object.");
         const errors = await validate(dto);
-        console.log(dto)
-        console.log(errors)
 
         if (errors.length) {
             const errorNotification = populateErrorNotification(new ErrorNotification(), errors);

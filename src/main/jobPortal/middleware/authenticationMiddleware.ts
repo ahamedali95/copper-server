@@ -1,11 +1,12 @@
-import {Request, Response, NextFunction} from "express";
-import {StatusCodes} from "http-status-codes";
-import {BaseErrorResponse, ErrorDetail} from "../dto/response/BaseErrorResponse";
-import jwt, {JwtPayload} from 'jsonwebtoken';
-import httpContext from 'express-http-context';
+import { NextFunction, Request, Response } from "express";
+import httpContext from "express-http-context";
+import { StatusCodes } from "http-status-codes";
+import jwt, { JwtPayload } from "jsonwebtoken";
+
+import { BaseErrorResponse, ErrorDetail } from "../dto/response/BaseErrorResponse";
 
 const authenticationMiddleware = (req: Request, res: Response, next: NextFunction): void => {
-    const token = req.cookies['access-token'];
+    const token = req.cookies["access-token"];
 
     if (!token) {
         const baseErrorResponse = new BaseErrorResponse();
@@ -15,11 +16,11 @@ const authenticationMiddleware = (req: Request, res: Response, next: NextFunctio
         baseErrorResponse.addError(errorDetail);
 
         //@ts-ignore
-       return res.status(StatusCodes.UNAUTHORIZED).json(baseErrorResponse).send();
+        return res.status(StatusCodes.UNAUTHORIZED).json(baseErrorResponse).send();
     }
 
     try {
-        const decoded = jwt.verify(token!, 'privateKey') as JwtPayload;
+        const decoded = jwt.verify(token!, "privateKey") as JwtPayload;
         req.user = { ...(req.user ?? {}), userId: decoded?.email };
         httpContext.set("user", req.user);
         next();
@@ -30,7 +31,8 @@ const authenticationMiddleware = (req: Request, res: Response, next: NextFunctio
         errorDetail._detail = "Provided token is not valid";
         baseErrorResponse.addError(errorDetail);
 
-        res.status(StatusCodes.UNAUTHORIZED).json(baseErrorResponse).send();
+        //@ts-ignore
+        return res.status(StatusCodes.UNAUTHORIZED).json(baseErrorResponse).send();
     }
 };
 

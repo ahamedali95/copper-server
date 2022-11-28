@@ -1,19 +1,20 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+
 import UserProfile from "./UserProfileEntity";
 
-@Entity({ name: 'user' })
+@Entity({ name: "user" })
 class UserEntity {
-    @PrimaryGeneratedColumn({ name: 'id' })
+    @PrimaryGeneratedColumn({ name: "id" })
     private id: number;
 
-    @Column({ name: 'email' })
+    @Column({ name: "email" })
     private email: string;
 
-    @Column({ name: 'password' })
+    @Column({ name: "password" })
     private password: string;
 
     @OneToOne(() => UserProfile, (userProfile) => userProfile._user, { eager: true, cascade: true })
-    @JoinColumn({ name: 'profileId' })
+    @JoinColumn({ name: "profileId" })
     private profile: UserProfile | null;
 
     constructor() {}

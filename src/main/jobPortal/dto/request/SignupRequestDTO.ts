@@ -1,4 +1,4 @@
-import {IsDefined, IsEmail, IsString, Matches, MaxLength, MinLength} from "class-validator";
+import { IsEmail, Matches, MaxLength, MinLength } from "class-validator";
 
 class SignupRequestDTO {
     @IsEmail()
@@ -6,7 +6,7 @@ class SignupRequestDTO {
 
     @MinLength(12)
     @MaxLength(24)
-    @Matches(new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])/), { message: 'password must contain at least 1 upper case letter and 1 lower case letter and 1 number and 1 special character of the following: !@#$%^&*' })
+    @Matches(new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])/), { message: "password must contain at least 1 upper case letter and 1 lower case letter and 1 number and 1 special character of the following: !@#$%^&*" })
     private password: string;
 
     get _email(): string {

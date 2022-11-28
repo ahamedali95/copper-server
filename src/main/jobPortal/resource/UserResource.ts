@@ -1,15 +1,16 @@
-import express, {Request, Response} from 'express';
-import UserRepository, {UserProfileRepository} from "../repository/UserRepository";
-import BaseRequestDTO from "../dto/request/BaseRequestDTO";
-import BaseResource from "./BaseResource";
+import express, { Request, Response } from "express";
 
 import logger from "../config/logger";
-import UserService from "../service/UserService";
-import UserProfileRequestDTO from "../dto/request/UserProfileRequestDTO";
-import UserProfileResponseDTO from "../dto/response/UserProfileResponseDto";
-import UserDetailResponseDto from "../dto/response/UserDetailResponseDto";
-import UserProfile from "../entity/UserProfileEntity";
+import BaseRequestDTO from "../dto/request/BaseRequestDTO";
 import UserDetailRequestDto from "../dto/request/UserDetailRequestDto";
+import UserProfileRequestDTO from "../dto/request/UserProfileRequestDTO";
+import UserDetailResponseDto from "../dto/response/UserDetailResponseDto";
+import UserProfileResponseDTO from "../dto/response/UserProfileResponseDto";
+import UserProfile from "../entity/UserProfileEntity";
+import UserProfileRepository from "../repository/UserProfileRepository";
+import UserRepository from "../repository/UserRepository";
+import UserService from "../service/UserService";
+import BaseResource from "./BaseResource";
 
 export class UserResource extends BaseResource {
     private userService: UserService;
@@ -24,7 +25,7 @@ export class UserResource extends BaseResource {
         this.deleteUser = this.deleteUser.bind(this);
     }
 
-    async createOrUpdateProfile(request: Request<{}, {}, BaseRequestDTO<UserProfileRequestDTO>>, response: Response): Promise<void> {
+    async createOrUpdateProfile(request: Request<any, any, BaseRequestDTO<UserProfileRequestDTO>>, response: Response): Promise<void> {
         try {
             logger.info(`Request body: ${JSON.stringify(request.body)}`);
             const baseRequestDTO = await this.validateBaseResponseBody<UserProfileRequestDTO>(request.body);
@@ -38,7 +39,7 @@ export class UserResource extends BaseResource {
         }
     }
 
-    async getProfile(request: Request<{}, {}, {}>, response: Response): Promise<void> {
+    async getProfile(request: Request, response: Response): Promise<void> {
         try {
             const profile = await this.userService.getUserProfile();
             this.handleSuccess(request, response, profile);
@@ -47,20 +48,18 @@ export class UserResource extends BaseResource {
         }
     }
 
-    async deleteProfile(request: Request<{}, {}, {}>, response: Response): Promise<void> {
+    async deleteProfile(request: Request, response: Response): Promise<void> {
         try {
             await this.userService.deleteUserProfile();
 
             this.handleSuccess(request, response, {});
         } catch (e: any) {
-            console.log("fail", e)
-
             this.handleFailure(request, response, e);
         }
     }
 
 
-    async updateEmail(request: Request<{}, {}, BaseRequestDTO<UserDetailRequestDto>>, response: Response): Promise<void> {
+    async updateEmail(request: Request<any, any, BaseRequestDTO<UserDetailRequestDto>>, response: Response): Promise<void> {
         try {
             logger.info(`Request body: ${JSON.stringify(request.body)}`);
             const baseRequestDTO = await this.validateBaseResponseBody<UserDetailRequestDto>(request.body);
@@ -78,7 +77,7 @@ export class UserResource extends BaseResource {
     }
 
 
-    async deleteUser(request: Request<{}, {}, {}>, response: Response): Promise<void> {
+    async deleteUser(request: Request, response: Response): Promise<void> {
         try {
             await this.userService.deleteUser();
 
@@ -139,11 +138,11 @@ export class UserResource extends BaseResource {
 const userResource = new UserResource(new UserService(new UserRepository(), new UserProfileRepository()));
 
 const userRouter = express.Router();
-userRouter.post('/profile', userResource.createOrUpdateProfile);
-userRouter.get('/profile', userResource.getProfile);
-userRouter.put('/profile', userResource.createOrUpdateProfile);
-userRouter.delete('/profile', userResource.deleteProfile);
-userRouter.put('/accountDetails', userResource.updateEmail);
-userRouter.delete('/accountDetails', userResource.deleteUser);
+userRouter.post("/profile", userResource.createOrUpdateProfile);
+userRouter.get("/profile", userResource.getProfile);
+userRouter.put("/profile", userResource.createOrUpdateProfile);
+userRouter.delete("/profile", userResource.deleteProfile);
+userRouter.put("/accountDetails", userResource.updateEmail);
+userRouter.delete("/accountDetails", userResource.deleteUser);
 
 export default userRouter;

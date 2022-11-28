@@ -1,4 +1,4 @@
-import {IsDefined, IsEmail, IsString, Matches, MaxLength, MinLength} from "class-validator";
+import { IsDefined, IsEmail, IsString } from "class-validator";
 
 class SignonRequestDTO {
     @IsEmail()
