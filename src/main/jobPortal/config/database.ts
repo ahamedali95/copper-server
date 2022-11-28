@@ -13,7 +13,8 @@ const connection = connectionManager.create({
     host: "jelani.db.elephantsql.com",
     port: 5432,
     username: "afiiroky",
-    password: "IPdLOqRBwl2DTr-LMN8tMbn7fmT2xTix",
+    //insert db password here
+    password: "",
     database: "afiiroky",
     entities: [
         "../entity/*.ts",
