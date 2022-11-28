@@ -7,7 +7,9 @@ import logger from "../config/logger";
 import UserService from "../service/UserService";
 import UserProfileRequestDTO from "../dto/request/UserProfileRequestDTO";
 import UserProfileResponseDTO from "../dto/response/UserProfileResponseDto";
+import UserDetailResponseDto from "../dto/response/UserDetailResponseDto";
 import UserProfile from "../entity/UserProfileEntity";
+import UserDetailRequestDto from "../dto/request/UserDetailRequestDto";
 
 export class UserResource extends BaseResource {
     private userService: UserService;
@@ -18,6 +20,8 @@ export class UserResource extends BaseResource {
         this.createOrUpdateProfile = this.createOrUpdateProfile.bind(this);
         this.getProfile = this.getProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
+        this.updateEmail = this.updateEmail.bind(this);
+        this.deleteUser = this.deleteUser.bind(this);
     }
 
     async createOrUpdateProfile(request: Request<{}, {}, BaseRequestDTO<UserProfileRequestDTO>>, response: Response): Promise<void> {
@@ -30,7 +34,6 @@ export class UserResource extends BaseResource {
 
             this.handleSuccess(request, response, this.mapUserProfileEntityToResponseDto(userProfile));
         } catch (error: any) {
-            console.log(error)
             this.handleFailure(request, response, error);
         }
     }
@@ -47,13 +50,43 @@ export class UserResource extends BaseResource {
     async deleteProfile(request: Request<{}, {}, {}>, response: Response): Promise<void> {
         try {
             await this.userService.deleteUserProfile();
-            console.log("sucess")
-            this.handleSuccess(request, response, {isProfileDeleted: true});
+
+            this.handleSuccess(request, response, {});
         } catch (e: any) {
             console.log("fail", e)
 
             this.handleFailure(request, response, e);
         }
+    }
+
+
+    async updateEmail(request: Request<{}, {}, BaseRequestDTO<UserDetailRequestDto>>, response: Response): Promise<void> {
+        try {
+            logger.info(`Request body: ${JSON.stringify(request.body)}`);
+            const baseRequestDTO = await this.validateBaseResponseBody<UserDetailRequestDto>(request.body);
+            const userDetailRequestDto = new UserDetailRequestDto();
+            userDetailRequestDto._email = baseRequestDTO?._data._attributes?.email;
+            await this.validateDto(userDetailRequestDto);
+            const user = await this.userService.updateUserEmail(userDetailRequestDto);
+            const userDetailResponseDto = new UserDetailResponseDto();
+            userDetailResponseDto._email = user._email;
+
+            this.handleSuccess(request, response, userDetailResponseDto);
+        } catch (error: any) {
+            this.handleFailure(request, response, error);
+        }
+    }
+
+
+    async deleteUser(request: Request<{}, {}, {}>, response: Response): Promise<void> {
+        try {
+            await this.userService.deleteUser();
+
+            this.handleSuccess(request, response, {});
+        } catch (error: any) {
+            this.handleFailure(request, response, error);
+        }
+
     }
 
     private getUserProfileRequestDto(baseRequestDTO: any): UserProfileRequestDTO {
@@ -110,5 +143,7 @@ userRouter.post('/profile', userResource.createOrUpdateProfile);
 userRouter.get('/profile', userResource.getProfile);
 userRouter.put('/profile', userResource.createOrUpdateProfile);
 userRouter.delete('/profile', userResource.deleteProfile);
+userRouter.put('/accountDetails', userResource.updateEmail);
+userRouter.delete('/accountDetails', userResource.deleteUser);
 
 export default userRouter;

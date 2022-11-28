@@ -27,6 +27,7 @@ abstract class UserProfileDTO {
     private experience: string;
 
     @MaxLength(255)
+    //@todo: fix this!
     // @IsUrl()
     @IsOptional()
     private twitterUrl: string;

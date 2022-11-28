@@ -67,7 +67,7 @@ abstract class BaseResource {
             this.handleStandard(res, dto);
         } else if (req.method === "DELETE") {
             this.handleStandard(res, dto);
-        } else if (req.method === "UPDATE") {
+        } else if (req.method === "PUT") {
             this.handleStandard(res, dto);
         }
     }

@@ -7,7 +7,7 @@ import httpContext from 'express-http-context';
 import UserProfile from "../entity/UserProfileEntity";
 import ResourceNotException from "../exception/ResourceNotFoundException";
 import ResourceNotFoundException from "../exception/ResourceNotFoundException";
-import UserEntity from "../entity/UserEntity";
+import UserDetailRequestDto from "../dto/request/UserDetailRequestDto";
 
 class UserService {
     private userRepository: IUserRepository;
@@ -64,6 +64,18 @@ class UserService {
 
         logger.info("User does not have a profile.");
         throw new ResourceNotFoundException("Profile not found");
+    }
+
+    async updateUserEmail(userDetail: UserDetailRequestDto): Promise<User> {
+        const user = await this.userRepository.findByEmail(httpContext.get("user").userId) as User;
+        user._email = userDetail._email;
+
+        return await this.userRepository.update(user) as User;
+    }
+
+    async deleteUser(): Promise<boolean> {
+        const user = await this.userRepository.findByEmail(httpContext.get("user").userId) as User;
+        return await this.userRepository.delete(user);
     }
 
     private mapUserProfileDtoToEntity(profile: UserProfile, userProfileDTO: UserProfileRequestDTO): UserProfile {
